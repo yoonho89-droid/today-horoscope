@@ -6,6 +6,14 @@ import random
 # 페이지 설정
 # -----------------------------
 st.set_page_config(
+    YOUTUBE_CHANNEL = "https://www.youtube.com/channel/UCzom9LzxN8wTioBPnMSSadg"
+
+# ✅ 모바일에서 제일 안정적인 버튼
+try:
+    st.link_button("▶️ 해외 동요 유튜브 채널", YOUTUBE_CHANNEL)
+except Exception:
+    st.markdown(f"▶️ [해외 동요 유튜브 채널 바로가기]({YOUTUBE_CHANNEL})")
+
     page_title="오늘의 별자리 운세",
     page_icon="🔮",
     layout="centered",
@@ -227,3 +235,4 @@ if btn and birth:
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.caption("※ 조합형 문장 기반 MVP · 반복 체감 최소화")
+
