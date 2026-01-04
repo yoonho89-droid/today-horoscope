@@ -3,21 +3,33 @@ from datetime import date
 import random
 
 # -----------------------------
-# 페이지 설정
+# 페이지 설정 (이 블록엔 이것만!)
 # -----------------------------
 st.set_page_config(
-    YOUTUBE_CHANNEL = "https://www.youtube.com/channel/UCzom9LzxN8wTioBPnMSSadg"
+    page_title="오늘의 별자리 운세",
+    page_icon="🔮",
+    layout="centered",
+)
 
-# ✅ 모바일에서 제일 안정적인 버튼
+# -----------------------------
+# 유튜브 채널 버튼 (모바일 안정)
+# -----------------------------
+YOUTUBE_CHANNEL = "https://www.youtube.com/channel/UCzom9LzxN8wTioBPnMSSadg"
+
 try:
     st.link_button("▶️ 해외 동요 유튜브 채널", YOUTUBE_CHANNEL)
 except Exception:
     st.markdown(f"▶️ [해외 동요 유튜브 채널 바로가기]({YOUTUBE_CHANNEL})")
 
-    page_title="오늘의 별자리 운세",
-    page_icon="🔮",
-    layout="centered",
-)
+# -----------------------------
+# CSS (기존 그대로)
+# -----------------------------
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap');
+/* 이하 기존 CSS 전부 그대로 */
+""", unsafe_allow_html=True)
+
 
 # -----------------------------
 # CSS (폰트/상단 배너 제거/버튼/다크 UI)
@@ -235,4 +247,5 @@ if btn and birth:
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.caption("※ 조합형 문장 기반 MVP · 반복 체감 최소화")
+
 
